@@ -10,7 +10,7 @@ const Chat = () => {
     const [messages , setMessages] = useState([])
     useEffect(()=>{
         orderBy('createdAt'),limit(50),onSnapshot(collection(db, 'users'),snapshot=>{
-            setMessages(snapshot.docs.map(doc =>doc.data))
+            setMessages(snapshot.docs.map(doc =>doc.data()))
         })
     },[])
     return (
